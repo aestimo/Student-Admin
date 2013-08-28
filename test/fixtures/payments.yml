@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  payment_date: 2013-08-28 10:32:30
+  payment_amount: 1
+  course_id: 1
+  student_id: 1
+
+two:
+  payment_date: 2013-08-28 10:32:30
+  payment_amount: 1
+  course_id: 1
+  student_id: 1
