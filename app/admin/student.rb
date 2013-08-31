@@ -1,5 +1,7 @@
 ActiveAdmin.register Student do
   menu parent: "Student Management"
+  menu priority: 1
+  config.per_page = 10
 
   index do
   #  a list of stuff to input
