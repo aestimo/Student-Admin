@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130828073626) do
+ActiveRecord::Schema.define(:version => 20130831162518) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "namespace"
@@ -51,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20130828073626) do
     t.string   "name"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.integer  "cost"
   end
 
   create_table "payments", :force => true do |t|
@@ -60,6 +61,18 @@ ActiveRecord::Schema.define(:version => 20130828073626) do
     t.integer  "student_id"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+    t.integer  "receipt_no"
+  end
+
+  create_table "results", :force => true do |t|
+    t.integer  "student_id"
+    t.integer  "course_id"
+    t.integer  "cat_mark"
+    t.integer  "exam_mark"
+    t.integer  "assign_mark"
+    t.integer  "project_mark"
+    t.datetime "created_at",   :null => false
+    t.datetime "updated_at",   :null => false
   end
 
   create_table "students", :force => true do |t|
@@ -70,6 +83,7 @@ ActiveRecord::Schema.define(:version => 20130828073626) do
     t.string   "sex"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+    t.string   "serial_no"
   end
 
   create_table "units", :force => true do |t|
