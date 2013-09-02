@@ -13,6 +13,9 @@ ActiveAdmin.register Payment do
     column ("Payment by") do |payment|
       payment.student.name.upcase
     end
+    column ("Payment for") do |payment|
+      payment.course.name.upcase
+    end
     default_actions
   end
 

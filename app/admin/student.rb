@@ -1,6 +1,6 @@
 ActiveAdmin.register Student do
   menu parent: "Student Management"
-  menu priority: 1
+  #menu priority: 1
   config.per_page = 10
 
   index do
@@ -36,8 +36,16 @@ ActiveAdmin.register Student do
 
   sidebar "Student's payment information", only: :show do
     table_for (student.courses) do |t|
-      t.column ("Payment for"){|course|course.name.upcase}
-      t.column ("Balance to pay"){|course|number_to_currency(course.cost - student.payments.where(course_id: course.id).sum(:payment_amount), unit:"Ksh. ")}
+      t.column ("Payment/Deposit"){|course|"For: #{course.name.capitalize}"}
+      #t.column ("Balance to pay"){|course|number_to_currency(course.cost - student.payments.where(course_id: course.id).sum(:payment_amount), unit:"Ksh. ")}
+      t.column ("Balance to pay") do |course|
+        balance = course.cost - student.payments.where(course_id: course.id).sum(:payment_amount)
+        if balance != 0
+          "Student to pay: #{balance}"
+        else
+          "Student has cleared payment!"
+        end
+      end
     end
   end
 
