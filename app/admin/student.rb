@@ -38,14 +38,14 @@ ActiveAdmin.register Student do
     table_for (student.courses) do |t|
       t.column ("Payment/Deposit"){|course|"For: #{course.name.capitalize}"}
       #t.column ("Balance to pay"){|course|number_to_currency(course.cost - student.payments.where(course_id: course.id).sum(:payment_amount), unit:"Ksh. ")}
-      t.column ("Balance to pay") do |course|
-        balance = course.cost - student.payments.where(course_id: course.id).sum(:payment_amount)
-        if balance != 0
-          "Student to pay: #{balance}"
-        else
-          "Student has cleared payment!"
-        end
-      end
+      #t.column ("Balance to pay") do |course|
+      #  balance = course.cost - student.payments.where(course_id: course.id).sum(:payment_amount)
+      #  if balance != 0
+      #    "Student to pay: #{balance}"
+      #  else
+      #    "Student has cleared payment!"
+      #  end
+      #end
     end
   end
 
