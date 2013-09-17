@@ -8,6 +8,7 @@ gem 'rails', '3.2.13'
 gem 'pg'
 
 gem "activeadmin", github: "gregbell/active_admin"
+gem 'rails_12factor', group: :production
 
 
 # Gems used only for assets and not required
